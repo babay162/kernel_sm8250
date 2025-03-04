@@ -1,4 +1,4 @@
-name: FakeDreamer - clang-r547379 next-susfs
+name: Overissue- clang-r547379 next-susfs
 
 on:
   pull_request:
@@ -9,7 +9,7 @@ on:
         required: false
       KERNEL_TREE:
         description: 'Kernel Tree'
-        default: 'https://github.com/re-noroi/kernel_sm8250'
+        default: 'https://github.com/babay162/kernel_sm8250'
         required: true
       KERNEL_TREE_BRANCH:
         description: 'Kernel Tree Branch'
@@ -21,7 +21,7 @@ on:
         required: true
       ANYKERNEL_URL:
         description: 'AnyKernel Url (leave blank if you dont want AnyKernel)'
-        default: 'https://github.com/re-noroi/anykernel3-stock'
+        default: 'https://github.com/babay162/anykernel3-stock'
         required: false
       ANYKERNEL_BRANCH:
         description: 'AnyKernel Branch (defaults to codename)'
@@ -81,8 +81,8 @@ jobs:
         bash nextpatch.sh
         export ARCH=arm64
         export SUBARCH=ARM64
-        export KBUILD_BUILD_USER="renoroi"
-        export KBUILD_BUILD_HOST="dreamstate"
+        export KBUILD_BUILD_USER="overissue"
+        export KBUILD_BUILD_HOST="NAPI"
         make O=out vendor/alioth_defconfig PATH="${{ steps.tools.outputs.tools-folder }}/clang/bin:$PATH"
         make O=out CC=clang -j$(nproc --all) PATH="${{ steps.tools.outputs.tools-folder }}/clang/bin:$PATH" CROSS_COMPILE=aarch64-linux-gnu- LLVM=1 LLVM_IAS=1
         echo "elapsed_time=$(echo "$(date +%s)"-"${{ steps.workspace.outputs.start_time }}" | bc)" >> $GITHUB_OUTPUT
