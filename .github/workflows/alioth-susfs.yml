@@ -81,7 +81,7 @@ jobs:
         bash nextpatch.sh
         export ARCH=arm64
         export SUBARCH=ARM64
-        export KBUILD_BUILD_USER="overissue"
+        export KBUILD_BUILD_USER="babayy"
         export KBUILD_BUILD_HOST="NAPI"
         make O=out vendor/alioth_defconfig PATH="${{ steps.tools.outputs.tools-folder }}/clang/bin:$PATH"
         make O=out CC=clang -j$(nproc --all) PATH="${{ steps.tools.outputs.tools-folder }}/clang/bin:$PATH" CROSS_COMPILE=aarch64-linux-gnu- LLVM=1 LLVM_IAS=1
@@ -109,7 +109,7 @@ jobs:
         if [ -e "dtbo.img" ]; then
           cp -f dtbo.img AnyKernel3/alioth-aosp-dtbo.img
         fi
-        name=FakeDreamer-stk-susfs-${{ github.event.inputs.CODENAME }}-${{ github.run_id }}.zip
+        name=Overissue-susfs-${{ github.event.inputs.CODENAME }}-${{ github.run_id }}.zip
         cd AnyKernel3
         zip -q -r $name *
         mv $name ../
